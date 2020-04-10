@@ -1,0 +1,60 @@
+indexing exercise
+ 
+In your account:
+ 
+1) create a large emp table as follows:
+ 
+create table empbig as select * from emp;
+ 
+2) enlarge empbig with:
+ 
+insert into empbig select * from empbig;
+ 
+repeat this statement until 1792 rows are inserted into 
+empbig. this will result in a  table having 3584 rows.
+ 
+3) Add a new col to the table:
+ 
+alter table empbig
+add seqid number(5);
+ 
+4) Populate this new column with a sequence of unique values 
+with:
+ 
+update empbig
+set seqid = rownum;
+ 
+(rownum is an Oracle specific keyword which, when used in this way,  simply adds a unique number to each row of the table).
+
+5) commit your values simply by typing
+
+commit
+
+at the SQL prompt.
+ 
+6) set up for taking timing statistics with:
+ 
+set timing on.
+
+(note no semi-colon at the end of this statement as it is an sqlplus statement (Oracle specific)).
+
+This will report the execution time each time you execute a query.
+ 
+7) Make a note of the the reported cpu times for the following queries:
+ 
+select the empno with seqid = 1000
+
+8) select empnos with seqid > 3000
+  
+9) Increase values of seqid by 5000 for rows having seqid >
+2000
+
+10) select empnos with seqid > 3000
+   
+11) create a unique index on seqid
+ 
+12) repeat steps 7 to 10, contrasting the time for each operation now supported with a unique index with the first time through when no index was present.
+
+Continue to examine the effect on timings of selecting and updating greater proportions of the table in the presence of an index.
+
+ 

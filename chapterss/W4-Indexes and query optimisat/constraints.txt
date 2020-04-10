@@ -1,0 +1,65 @@
+Declarative Integrity Constraints
+
+Ensure your account has a copy of the emp and dept tables. (The emp table
+should have 14 rows and the dept table 4 rows)
+
+1. Enforce a constraint on the deptno column such that it becomes a foreign key
+referencing the dept table.
+
+2. Enforce primary key constraints on the emp and dept tables (use empno in the
+emp table and deptno in the dept table). Name the constraints using the format
+pk _tablename
+
+3. Repeat 2 without explicitly naming the constraint.
+
+4. Identify where the details of constraints are maintained in the Oracle 
+data dictionary, and locate the details of your foreign key constraint. You
+will need to construct appropriate search criteria.
+
+5. Change the referential constraint on emp. Deptno such that it has an explicit
+name conforming to the format fk_tablename_columnname
+
+6. Introduce a default value of $ 1000 for sal.
+
+7. Make sure that the job column is NOT NULL (use
+the standard naming convention of nn_tablename_columnname)
+
+8. Try to make sure (using a CHECK constraint) that hiredate is not later than
+today's date.
+
+9. Make sure that sal values are within $700 to $7000
+
+10. Try inserting new employees with:
+A salary value of $500
+An unknown salary (NULL)
+
+11. Ensure that dname values are unique.
+
+12. Create an index on the foreign key emp.deptno
+
+13. Identify where the details of indexes are stored in the Oracle data
+dictionary. Locate the details of your emp.deptno index definition.
+
+14. Carry out the following operations in order to test your constraints:
+
+Try to insert a duplicate employee
+Insert a new department having the same name as `OPERATIONS'
+Insert a new employee in department 99
+Insert a new employee in an unknown department
+Insert a new employee with a salary of $8000
+Delete department 30 from the department table
+Delete department 40 from the department table
+
+15. Change the emp table such that if a department record is deleted from the
+dept Table, corresponding employee records are automatically deleted
+from the emp table. (You will need to use the DELETE CASCADE clause in a new
+constraint)
+
+16. Delete department 30 from the dept table and query both tables
+to observe the Result.
+
+17. Disable the primary key constraint on the emp table.
+
+18. Insert a new employee with a duplicate empno value { Aside: How would
+you identify duplicate rows and subsequently remove them?}
+

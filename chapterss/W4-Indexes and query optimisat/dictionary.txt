@@ -1,0 +1,127 @@
+Oracle Data Dictionary 
+
+The Oracle data dictionary is one of the most important components of the Oracle DBMS. 
+It contains all information about the structures and objects of the database such as tables, 
+columns, users, data files etc. The data stored in the data dictionary are also often called 
+metadata. Although it is usually the domain of database administrators (DBAs), the data 
+dictionary is a valuable source of information for end users and developers. The data dictionary 
+consists of two levels: the internal level contains all base tables that are used by the various 
+DBMS software components and they are normally not accessible by end users. The external 
+level provides numerous views on these base tables to access information about objects and 
+structures at different levels of detail. 
+
+3.1 Data Dictionary Tables 
+An installation of an Oracle database always includes the creation of three standard Oracle 
+users: 
+
+• SYS: This is the owner of all data dictionary tables and views. This user has the highest 
+privileges to manage objects and structures of an Oracle database such as creating new 
+users. 
+• SYSTEM: is the owner of tables used by different tools such SQL*Forms, SQL*Reports etc. 
+This user has less privileges than SYS. 
+• PUBLIC: This is a “dummy” user in an Oracle database. All privileges assigned to this 
+user are automatically assigned to all users known in the database. 
+The tables and views provided by the data dictionary contain information about 
+
+• users and their privileges, 
+• tables, table columns and their data types, integrity constraints, indexes, 
+• statistics about tables and indexes used by the optimizer, 
+• privileges granted on database objects, 
+• storage structures of the database. 
+The SQL command 
+
+select * from DICTIONARY]; 
+
+lists all tables and views of the data dictionary that are accessible to the user. The selected 
+information includes the name and a short description of each table and view. Before issuing 
+this query, check the column definitions of DICTIONARY] using desc DICTIONARY] and set 
+the appropriate values for column using the format command. 
+
+The query 
+
+select * from TAB; 
+
+retrieves the names of all tables owned by the user who issues this command. The query 
+
+select * from COL; 
+
+returns all information about the columns of one’s own tables. 
+
+Each SQL query requires various internal accesses to the tables and views of the data dictionary. 
+Since the data dictionary itself consists of tables, Oracle has to generate numerous SQL 
+statements to check whether the SQL command issued by a user is correct and can be executed. 
+
+Example: The SQL query 
+
+select * from EMP 
+where SAL > 2000; 
+
+requires a verification whether (1) the table EMP exists, (2) the user has the privilege to access 
+this table, (3) the column SAL is defined for this table etc. 
+
+3.2 Data Dictionary Views 
+The external level of the data dictionary provides users a front end to access information 
+relevant to the users. This level provides numerous views (in Oracle7 approximately 540) 
+that represent (a portion of the) data from the base tables in a readable and understandable 
+manner. These views can be used in SQL queries just like normal tables. 
+
+The views provided by the data dictionary are divided into three groups: USER, ALL,and DBA. 
+The group name builds the prefix for each view name. For some views, there are associated 
+synonyms as given in brackets below. 
+
+• USER : Tuples in the USER views contain information about objects owned by the account 
+performing the SQL query (current user) 
+
+USER_TABLES all tables with their name, number of columns, storage 
+information, statistical information etc. (TABS) 
+
+USER_CATALOG tables, views, and synonyms (CAT) 
+
+USER_COL COMMENTS comments on columns 
+
+USER_CONSTRAINTS constraint definitions for tables 
+
+USER_INDEXES all information about indexes created for tables (IND) 
+
+USER_OBJECTS all database objects owned by the user (OBJ) 
+
+USER_TAB_COLUMNS columns of the tables and views owned by the user (COLS)
+ 
+USER_TAB_COMMENTS comments on tables and views 
+
+USER_TRIGGERS triggers defined by the user 
+
+USER_USERS information about the current user 
+
+USER_VIEWS views defined by the user 
+
+• ALL : Rows in the ALL views include rows of the USER views and all information about 
+objects that are accessible to the current user. The structure of these views is analogous 
+to the structure of the USER views. 
+
+ALL_CATALOG owner, name and type of all accessible tables, views, and 
+synonyms 
+
+ALL_TABLES owner and name of all accessible tables 
+
+ALL_OBJECTS owner, type, and name of accessible database objects 
+
+ALL_TRIGGERS . . . 
+
+ALL_USERS . . . 
+
+ALL_VIEWS . . . 
+
+
+• DBA : The DBA views encompass information about all database objects, regardless of the 
+owner. Only users with DBA privileges can access these views. 
+
+DBA_TABLES tables of all users in the database 
+
+DBA_CATALOG tables, views, and synonyms defined in the database 
+
+DBA_OBJECTS objects of all users 
+
+DBA_DATA_FILES information about data files 
+
+DBA_USERS information about all users known in the database 
