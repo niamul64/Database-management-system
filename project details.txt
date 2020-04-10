@@ -1,0 +1,59 @@
+soft. copy
+
+table of Index
+
+Project description
+
+ER Diagram
+
+Schema Diagram
+
+Table Creation
+Data Insertion
+
+Queries --- output screenshot
+
+
+Project --- 4/2=2 jon
+
+A+ ... project idea unique
+
+project titel
+
+ex. Rohinga Management System
+
+
+database
+
+University Database
+Hospital ...
+Airline ..
+Bank ..
+
+
+UAP --- soft. comp/engr.
+
+kemne toiri hoilo
+story/full description
+
+Entity Relation Model
+----ER diagram
+
+--schema diagram ----
+--database make-
+--tables make-
+Meaningful substantial Data insertion
+--query --- tomakei chinta korte hobe --- chap-3 run
+
+weekly update
+
+--- attenda/ence ---
+--- MID/etondin mukh chena
+--- lab exam
+--- project
+
+100%
+
+
+
+

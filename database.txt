@@ -1,0 +1,30 @@
+
+what we need to submit?
+
+a folder (soft copy)
+
+reshad(69),kader(80) === folder name
+
+ja thakbe folder e ...
+
+word file and setai corresponding pdf file
+sql script
+
+word/pdf file
+fist page ... = cover page ... 
+suchipotro ... == table of index
+	a Description of your project /story
+	b ER Diagram / entity relationship
+	c Schema Diagram
+	d Table creation / Data insert / CODE
+	e query
+		query 1: Find departwise average salary of 
+		Computer Science department
+		
+		Select avg(salary) as Monthly_salary
+		from Teacher_table
+		group by department
+		
+		screenshot
+		
+	
